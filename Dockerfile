@@ -1,8 +1,6 @@
 # Specify the base image
-FROM cypress/included:9.4.1
+FROM cypress/included:12.16.0
 
-#we need to copy these files because the docker image is searching for the spec files there
-COPY cypress/e2e cypress/integration
 # Set the working directory inside the container
 WORKDIR /app
 
@@ -10,7 +8,7 @@ WORKDIR /app
 COPY ./package.json ./package.json
 
 # Install the project dependencies
-RUN npm install && npm ci
+RUN npm install
 
 # Copy the rest of the project files to the container
 COPY . .
