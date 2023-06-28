@@ -1,6 +1,8 @@
 # Specify the base image
 FROM cypress/included:9.4.1
 
+#we need to copy these files because the docker image is searching for the spec files there
+COPY e2e /integration
 # Set the working directory inside the container
 WORKDIR /app
 
