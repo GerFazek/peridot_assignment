@@ -1,0 +1,15 @@
+{
+  "name": "peridot_assignment",
+  "version": "1.0.0",
+  "description": "This repo contains the solutions for the Peridot assignment",
+  "main": "index.js",
+  "scripts": {
+    "test:banking": "cypress run --spec cypress/e2e/banking.spec.cy.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.16.0"
+  }
+}

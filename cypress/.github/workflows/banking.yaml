@@ -1,0 +1,21 @@
+name: Banking test
+
+on:
+  workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker
+        uses: actions/setup-docker@v2
+
+      - name: Build Docker Image
+        run: docker build -t banking-test .
+
+      - name: Run Cypress Tests
+        run: docker run banking-test
