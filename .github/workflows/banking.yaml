@@ -19,3 +19,9 @@ jobs:
 
       - name: Run Cypress Tests
         run: docker run banking-test
+      
+      - name: Create and upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: My Artifacts
+          path: ./cypress/videos
