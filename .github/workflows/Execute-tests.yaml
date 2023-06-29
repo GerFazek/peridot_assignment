@@ -6,6 +6,7 @@ on:
       script:
         description: 'Script'
         required: true
+        default: 'all'
         type: choice
         options:
           - all
