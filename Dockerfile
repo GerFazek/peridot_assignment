@@ -5,7 +5,7 @@ FROM cypress/included:12.16.0
 WORKDIR /app
 
 # Copy the package.json and package-lock.json files to the container
-COPY ./package.json ./package.json
+COPY ./package.json ./package-lock.json ./
 
 # Install the project dependencies
 RUN npm install
@@ -13,8 +13,12 @@ RUN npm install
 # Copy the rest of the project files to the container
 COPY . .
 
-# Set the custom entrypoint command
-ENTRYPOINT ["npm", "run"]
+# Set the value of the SCRIPT environment variable using ARG with a default value
+ENV SCRIPT=$SCRIPT
 
-# Run the Cypress tests by default
-CMD ["test:$SCRIPT"]
+# Create a custom entrypoint script
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+# Set the custom entrypoint
+ENTRYPOINT ["docker-entrypoint.sh"]
