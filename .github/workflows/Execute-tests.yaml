@@ -1,7 +1,7 @@
 name: Execute tests
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
     inputs:
       script:
         description: 'script'
