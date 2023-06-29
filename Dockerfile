@@ -14,4 +14,4 @@ RUN npm install
 COPY . .
 
 # Run the Cypress tests with the provided script as the environment variable
-CMD ["npm", "run", "test:"]
+CMD ["npm", "run", "test:$SCRIPT"]
