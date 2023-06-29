@@ -13,8 +13,5 @@ RUN npm install
 # Copy the rest of the project files to the container
 COPY . .
 
-# Set the entrypoint script
-ENTRYPOINT ["npm", "run"]
-
-# Run the Cypress tests with the provided script as the argument
-CMD ["test:"]
+# Run the Cypress tests with the provided script as the environment variable
+CMD ["npm", "run", "test:"]

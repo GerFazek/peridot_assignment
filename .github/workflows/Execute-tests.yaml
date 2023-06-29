@@ -25,7 +25,7 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Build Docker Image
-        run: docker build --build-arg SCRIPT=${{ github.event.inputs.script }} -t execute-test .
+        run: docker run -e SCRIPT=${{ github.event.inputs.script }} banking-test
 
       - name: Run Cypress Tests
         run: docker run execute-test
