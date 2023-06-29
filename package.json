@@ -4,12 +4,20 @@
   "description": "This repo contains the solutions for the Peridot assignment",
   "main": "index.js",
   "scripts": {
-    "test:banking": "cypress run --spec cypress/e2e/banking.spec.cy.js"
+    "test:all": "cypress run",
+    "test:banking": "cypress run --spec cypress/e2e/banking.spec.cy.js",
+    "test:cucumber": "cypress run --spec cypress/e2e/cucumber.feature --headless"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.16.0"
+    "cypress": "^12.16.0",
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "xlsx": "^0.18.5"
   }
 }
