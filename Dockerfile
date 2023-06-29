@@ -13,8 +13,5 @@ RUN npm install
 # Copy the rest of the project files to the container
 COPY . .
 
-# Set the value of the SCRIPT environment variable using ARG with a default value
-ARG SCRIPT=default
-
 # Run the Cypress tests with the provided script as the environment variable
 CMD ["npm", "run", "test:$SCRIPT"]

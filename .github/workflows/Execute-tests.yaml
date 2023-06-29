@@ -28,7 +28,7 @@ jobs:
         run: docker build -t banking-test .
 
       - name: Run Cypress Tests
-        run: docker run -e SCRIPT=${{ github.event.inputs.script }} banking-test
+        run: docker run -e SCRIPT=${{ inputs.script }} banking-test
       
       - name: Create and upload artifacts
         uses: actions/upload-artifact@v2
