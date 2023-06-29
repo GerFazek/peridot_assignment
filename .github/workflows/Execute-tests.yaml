@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       script:
-        description: 'script'
+        description: 'Script'
         required: true
         default: 'all'
         type: choice
@@ -28,8 +28,10 @@ jobs:
         run: docker build -t banking-test .
 
       - name: Run Cypress Tests
-        run: docker run -e SCRIPT=${{ inputs.script }} banking-test
-      
+        env:
+          SCRIPT: ${{ inputs.script }}
+        run: docker run -e SCRIPT=$SCRIPT banking-test
+
       - name: Create and upload artifacts
         uses: actions/upload-artifact@v2
         with:
